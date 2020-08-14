@@ -12,14 +12,14 @@ const config = {
   },
   scene: {
     preload: preload,
-    create: create
+    create: create,
+    update: update,
   }
 };
 
 const game = new Phaser.Game(config);
 
-function preload ()
-{
+function preload(){
   this.load.setBaseURL('http://labs.phaser.io');
 
   this.load.image('sky', 'assets/skies/space3.png');
@@ -27,8 +27,7 @@ function preload ()
   this.load.image('red', 'assets/particles/red.png');
 }
 
-function create ()
-{
+function create(){
   this.add.image(400, 300, 'sky');
 
   let particles = this.add.particles('red');
@@ -46,4 +45,8 @@ function create ()
   logo.setCollideWorldBounds(true);
 
   emitter.startFollow(logo);
+}
+
+function update(){
+
 }
